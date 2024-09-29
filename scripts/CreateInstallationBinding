@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+cd $(dirname $0)
+
+target="$1"
+
+if [[ "$target" == "" ]]; then
+	echo "No given target"
+	exit 1
+fi
+
+cd machines
+ln -svf $target $HOSTNAME
+cd ../system_files
+ln -svf $target $HOSTNAME

@@ -1,0 +1,8 @@
+imports = [
+	"hp-prodesk/initial_packages",
+	"hp-prodesk/firmware",
+	"hp-prodesk/boot",
+	"hp-prodesk/desktop",
+	"hp-prodesk/misc",
+	"hp-prodesk/dev",
+]

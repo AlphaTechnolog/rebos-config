@@ -1,0 +1,11 @@
+[colors.primary]
+background = "#141414"
+
+[window]
+opacity = 0.75
+
+[font.normal]
+family = "Comic Code"
+
+[font]
+size = 12

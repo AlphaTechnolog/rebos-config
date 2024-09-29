@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+cd system_files
+
+new_hostname="${@}"
+
+test -d ./${new_hostname} && bash -c 'echo "Hostname already exists" && exit 1'
+mkdir -pv $new_hostname
+
+pushd ./${new_hostname} 2>&1 >/dev/null
+
+mkdir -pv ./skel/package.{accept_keywords,license,use}
+mkdir -pv ./config_files/.{config,local}
+
+cat << "EOF" >> ./make.conf.variables
+COMMON_FLAGS_APPEND=
+INPUT_DEVICES=
+VIDEO_CARDS=
+GLOBAL_USE=
+EOF
+
+popd 2>&1 > /dev/null

@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+cd ~/.config/rebos
+
+echo "* Performing /etc/portage/repos.conf check"
+
+test -f /etc/portage/repos.conf/gentoo.conf || \
+	sudo cp -rvf /usr/share/portage/config/repos.conf /etc/portage/repos.conf/gentoo.conf
+
+echo
+
+global_system_files="$HOME/.config/rebos/system_files"
+system_files="$global_system_files/$HOSTNAME"
+
+echo "* Updating make.conf"
+
+make_conf_template="$global_system_files/make.conf.template"
+make_conf_variables="$system_files/make.conf.variables"
+
+process_template() {
+    local template_file=$1
+    local variables_file=$2
+
+    while IFS='=' read -r var_name var_value; do
+        var_name=$(echo "$var_name" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+        var_value=$(echo "$var_value" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+
+        sed -i.bak "s/%$var_name%/$var_value/g" "$template_file"
+    done < "$variables_file"
+
+    cat "$template_file"
+}
+
+cp -rvf $make_conf_template $make_conf_template.tmp
+
+process_template "${make_conf_template}.tmp" "$make_conf_variables" | \
+	sudo tee /etc/portage/make.conf
+
+rm ${make_conf_template}.tmp
+
+echo
+echo "* Updating pkgs configs"
+
+pkgs_licenses="$system_files/skel/package.license"
+pkgs_accept_keywords="$system_files/skel/package.accept_keywords"
+pkgs_use="$system_files/skel/package.use"
+
+copy_pkgs_conf() {
+	test -d $1 || sudo mkdir -pv $1
+	sudo cp -rvf $2/* $1
+}
+
+copy_pkgs_conf /etc/portage/package.license $pkgs_licenses
+copy_pkgs_conf /etc/portage/package.accept_keywords $pkgs_accept_keywords
+copy_pkgs_conf /etc/portage/package.use $pkgs_use
+
+echo
+echo "Done"

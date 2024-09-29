@@ -1,0 +1,7 @@
+syntax off
+
+" Define the filetype
+autocmd BufNewFile,BufRead *.nix set filetype=nix
+
+" Set the filetype-specific options
+autocmd FileType nix setlocal tabstop=2 shiftwidth=2 expandtab

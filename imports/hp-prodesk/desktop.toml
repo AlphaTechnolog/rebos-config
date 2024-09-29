@@ -1,0 +1,13 @@
+[managers.portage]
+items = [
+	"x11-base/xorg-server",
+	"x11-base/xorg-drivers",
+	"media-sound/pulseaudio",
+	"media-video/pipewire",
+	"gui-wm/hyprland",
+	"x11-terms/alacritty",
+	"www-client/firefox-bin",
+	"app-misc/fastfetch",
+	"net-misc/dhcpcd",
+	"net-misc/networkmanager",
+]

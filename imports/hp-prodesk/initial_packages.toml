@@ -1,0 +1,9 @@
+[managers.portage]
+items = [
+	"dev-vcs/git",
+	"app-eselect/eselect-repository",
+	"app-portage/cpuid2cpuflags",
+	"app-shells/bash",
+	"app-editors/vim",
+	"app-admin/sudo"
+]

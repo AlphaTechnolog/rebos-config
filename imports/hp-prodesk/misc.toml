@@ -1,0 +1,5 @@
+[managers.portage]
+items = [
+	"app-misc/hello",
+	"app-text/tree"
+]

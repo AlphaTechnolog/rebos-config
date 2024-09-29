@@ -1,0 +1,5 @@
+[managers.portage]
+items = [
+	"sys-firmware/intel-microcode",
+	"sys-kernel/linux-firmware"
+]
