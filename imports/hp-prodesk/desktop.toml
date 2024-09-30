@@ -11,3 +11,8 @@ items = [
 	"net-misc/dhcpcd",
 	"net-misc/networkmanager",
 ]
+
+[managers.portage-guru]
+items = [
+	"gui-libs/xdg-desktop-portal-hyprland"
+]

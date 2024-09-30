@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+cache_files="$HOME/.cache/rebos"
+guru_lock="$cache_files/guru-repo"
+
+test -d "$cache_files" || mkdir -pv "$cache_files"
+
+if ! [[ -f "$guru_lock" ]]; then
+	sudo eselect repository enable guru
+	sudo emerge --sync guru
+	touch "$guru_lock"
+fi
