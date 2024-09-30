@@ -1,6 +1,6 @@
 [managers.portage]
 items = [
-	"sys-kernel/gentoo-kernel-bin",
+	"sys-kernel/gentoo-kernel",
 	"sys-boot/grub",
 	"sys-boot/os-prober",
 	"sys-fs/genfstab",

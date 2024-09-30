@@ -1,5 +1,8 @@
 [managers.portage]
 items = [
 	"app-misc/hello",
-	"app-text/tree"
+	"app-text/tree",
+	"gui-apps/grim",
+	"gui-apps/slurp",
+	"sys-process/htop",
 ]

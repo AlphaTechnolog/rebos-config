@@ -19,3 +19,4 @@ fi
 alias neofetch='fastfetch'
 
 export PS1='\[\033[01;92m\][\u@\h \w]\[\033[0m\] '
+export PATH="$PATH:$HOME/.cargo/bin"
