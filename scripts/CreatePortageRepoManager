@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+repo="$1"
+
+if [[ "$repo" == "" ]]; then
+	echo "Invalid repo"
+	exit 1
+fi
+
+cat << EOF > managers/portage-${repo}.toml
+# Generated via scripts/CreatePortageRepoManager
+
+add = "sudo emerge --verbose #:? --ask"
+remove = "sudo emerge -cav #:?"
+sync = "sudo emerge --sync"
+upgrade = "sudo emerge -avuDN @world"
+
+plural_name = "portage ${repo}-repo pkgs"
+
+hook_name = "portage_${repo}"
+
+[config]
+many_args = true
+EOF
+
+cat << EOF > hooks/pre_portage_${repo}_add
+#!/usr/bin/env bash
+
+# Generated via scripts/CreatePortageRepoManager
+
+cache_files="\$HOME/.cache/rebos"
+lock="\$cache_files/${repo}-repo"
+
+test -d "\$cache_files" || mkdir -pv "\$cache_files"
+
+if ! [[ -f "\$lock" ]]; then
+	sudo eselect repository enable ${repo}
+	sudo emerge --sync ${repo}
+	touch "\$lock"
+fi
+EOF
+
+chmod +x hooks/pre_portage_${repo}_add

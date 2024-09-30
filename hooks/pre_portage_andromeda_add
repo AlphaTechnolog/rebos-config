@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Generated via scripts/CreatePortageRepoManager
+
+cache_files="$HOME/.cache/rebos"
+lock="$cache_files/andromeda-repo"
+
+test -d "$cache_files" || mkdir -pv "$cache_files"
+
+if ! [[ -f "$lock" ]]; then
+	sudo eselect repository add andromeda git https://gitlab.com/Alxhr0/andromeda.git
+	sudo emerge --sync andromeda
+	touch "$lock"
+fi
