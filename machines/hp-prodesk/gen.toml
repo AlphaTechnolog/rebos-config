@@ -5,4 +5,5 @@ imports = [
 	"hp-prodesk/desktop",
 	"hp-prodesk/misc",
 	"hp-prodesk/dev",
+	"hp-prodesk/emulation",
 ]

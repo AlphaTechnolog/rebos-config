@@ -3,9 +3,9 @@ remove = "sudo emerge -cav #:?" # Example: sudo apt remove #:?
 sync = "sudo emerge --sync" # Example: sudo apt update
 upgrade = "sudo emerge -avuDN @world" # Example: sudo apt upgrade
 
-plural_name = "portage pkgs"
+plural_name = "portage emulation pkgs"
 
-hook_name = "portage"
+hook_name = "portage_emulation"
 
 [config]
 many_args = true
