@@ -3,6 +3,7 @@ items = [
 	"x11-base/xorg-server",
 	"x11-base/xorg-drivers",
 	"media-sound/pulseaudio",
+	"media-sound/pavucontrol",
 	"media-video/pipewire",
 	"gui-wm/hyprland",
 	"x11-terms/alacritty",
@@ -10,6 +11,7 @@ items = [
 	"app-misc/fastfetch",
 	"net-misc/dhcpcd",
 	"net-misc/networkmanager",
+	"gui-apps/wofi",
 ]
 
 [managers.portage-guru]

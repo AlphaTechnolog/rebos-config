@@ -4,5 +4,5 @@ items = [
 	"app-text/tree",
 	"gui-apps/grim",
 	"gui-apps/slurp",
-	"sys-process/htop",
+	"sys-process/htop"
 ]
