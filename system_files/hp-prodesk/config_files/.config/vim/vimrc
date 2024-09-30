@@ -1,4 +1,4 @@
-syntax off
+syntax on
 
 " Define the filetype
 autocmd BufNewFile,BufRead *.nix set filetype=nix
