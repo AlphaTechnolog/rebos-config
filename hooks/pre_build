@@ -4,6 +4,21 @@ cd ~/.config/rebos
 
 . ~/.config/rebos/hooks/common/utils.sh
 
+if ! [[ -d /var/$USER ]]; then
+	log_warning "Creating /var/$USER/.{config,local,cache}"
+	mkdir -pv /var/$USER/.{config,local,cache}
+	chown -R $USER:$USER /var/$USER
+
+	declare -a items=(config local cache)
+
+	for item in ${items[@]}; do
+		if ! [[ -L "/home/$USER/.${item}" ]]; then
+			log_info "Creating symlink to /var/$USER/.${item} into /home/$USER/.${item}"
+			ln -sf /var/$USER/.${item} /home/$USER/.${item}
+		fi
+	done
+fi
+
 log_warning "Performing /etc/portage/repos.conf check"
 
 test -d /etc/portage/repos.conf || sudo mkdir -pv /etc/portage/repos.conf
