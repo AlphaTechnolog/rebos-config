@@ -1,0 +1,6 @@
+[managers.systemd-services]
+items = [
+	"NetworkManager",
+	"dhcpcd",
+	"sshd"
+]

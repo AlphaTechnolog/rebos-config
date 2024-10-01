@@ -53,16 +53,6 @@ sudo cp -rvf "$config_files/.bashrc.root" /root/.bashrc
 rsync -vah "$config_files/.config/" ~/.config
 
 echo
-echo "* Enabling services"
-
-declare -a services=(NetworkManager dhcpcd sshd)
-
-for service in ${services[@]}; do
-	if [[ "$(systemctl is-enabled $service)" == "disabled" ]]; then
-		sudo systemctl enable $service.service
-	fi
-done
-
-echo
 echo "* Cleaning up"
+
 cd ~/.config/rebos && find -type f -name \*.bak -delete

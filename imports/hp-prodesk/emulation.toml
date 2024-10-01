@@ -4,3 +4,10 @@ items = [
 	"app-emulation/qemu",
 	"app-emulation/virt-manager",
 ]
+
+[managers.systemd-enable-now]
+items = [
+	"virtlogd",
+	"virtlockd",
+	"libvirtd"
+]

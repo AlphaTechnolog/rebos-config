@@ -1,20 +1,5 @@
 #!/usr/bin/env bash
 
-declare -a services=(virtlogd virtlockd libvirtd)
-
-echo "* Enabling services:"
-
-for service in ${services[@]}; do
-	echo "  -> $service"
-done
-
-for service in ${services[@]}; do
-	if [[ "$(systemctl is-enabled $service)" != "enabled" ]]; then
-		sudo systemctl enable --now ${service}.service
-	fi
-done
-
-echo
 echo "* Adding $USER to libvirt's group"
 
 sudo gpasswd -a $USER libvirt
