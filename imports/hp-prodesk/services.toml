@@ -1,4 +1,4 @@
-[managers.systemd-services]
+[managers.systemd-enable-now]
 items = [
 	"NetworkManager",
 	"dhcpcd",
