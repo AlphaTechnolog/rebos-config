@@ -2,17 +2,18 @@
 
 cd ~/.config/rebos
 
+. ~/.config/rebos/hooks/common/utils.sh
+
 global_system_files="$HOME/.config/rebos/system_files"
 system_files="$global_system_files/$HOSTNAME"
 preferred_timezone="America/Caracas"
 
-echo "* Setting zoneinfo to ${preferred_timezone}"
+log_info "Setting zoneinfo to ${preferred_timezone}"
 
 sudo ln -svf /usr/share/zoneinfo/${preferred_timezone} /etc/localtime
 sudo hwclock --systohc
 
-echo
-echo "* Editor = vim"
+log_info "Editor = vim"
 
 sudo eselect editor set vim
 
@@ -22,6 +23,7 @@ test -d "$system_cache" || mkdir -pv "$system_cache"
 
 if ! [[ -f "$system_cache/genfstab" ]]; then
 	touch "$system_cache/genfstab"
+	log_info "Generating fstab"
 	sudo genfstab -U / | sudo tee /etc/fstab
 fi
 
@@ -34,16 +36,16 @@ append_to() {
 echo
 
 if [[ "$(cat /etc/default/grub | grep GRUB_DISABLE_OS_PROBER)" == "" ]]; then
-	echo "* Grub os detection"
+	log_info "Enabling os prober for grub"
+	append_to /etc/default/grub ""
 	append_to /etc/default/grub "# Enable other oses detection"
 	append_to /etc/default/grub "GRUB_DISABLE_OS_PROBER=false"
 fi
 
 test -d /boot/grub || \
-	echo "warn: Remember to install grub by using grub-install and grub-mkconfig & remember to set your hostname"
+	log_warn "Remember to install grub by using grub-install and grub-mkconfig & remember to set your hostname"
 
-echo
-echo "* Copying config files"
+log_info "Copying config files"
 
 config_files="$system_files/config_files"
 
@@ -52,7 +54,8 @@ sudo cp -rvf "$config_files/.bashrc.root" /root/.bashrc
 
 rsync -vah "$config_files/.config/" ~/.config
 
-echo
-echo "* Cleaning up"
+log_info "Cleaning up"
 
 cd ~/.config/rebos && find -type f -name \*.bak -delete
+
+log_info "Success"

@@ -2,17 +2,19 @@
 
 cd ~/.config/rebos
 
-echo "* Performing /etc/portage/repos.conf check"
+. ~/.config/rebos/hooks/common/utils.sh
+
+log_warning "Performing /etc/portage/repos.conf check"
+
+test -d /etc/portage/repos.conf || sudo mkdir -pv /etc/portage/repos.conf
 
 test -f /etc/portage/repos.conf/gentoo.conf || \
 	sudo cp -rvf /usr/share/portage/config/repos.conf /etc/portage/repos.conf/gentoo.conf
 
-echo
-
 global_system_files="$HOME/.config/rebos/system_files"
 system_files="$global_system_files/$HOSTNAME"
 
-echo "* Updating make.conf"
+log_info "Updating make.conf"
 
 make_conf_template="$global_system_files/make.conf.template"
 make_conf_variables="$system_files/make.conf.variables"
@@ -38,8 +40,7 @@ process_template "${make_conf_template}.tmp" "$make_conf_variables" | \
 
 rm ${make_conf_template}.tmp
 
-echo
-echo "* Updating pkgs configs"
+log_info "Updating pkgs configs"
 
 pkgs_licenses="$system_files/skel/package.license"
 pkgs_accept_keywords="$system_files/skel/package.accept_keywords"
@@ -54,5 +55,4 @@ copy_pkgs_conf /etc/portage/package.license $pkgs_licenses
 copy_pkgs_conf /etc/portage/package.accept_keywords $pkgs_accept_keywords
 copy_pkgs_conf /etc/portage/package.use $pkgs_use
 
-echo
-echo "Done"
+log_info "Success"

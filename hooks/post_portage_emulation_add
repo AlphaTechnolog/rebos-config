@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
-echo "* Adding $USER to libvirt's group"
+cd ~/.config/rebos
+. ~/.config/rebos/hooks/common/utils.sh
+
+log_info "Adding $USER to the libvirt group"
 
 sudo gpasswd -a $USER libvirt
