@@ -33,13 +33,32 @@ append_to() {
 	echo "${2}" | sudo tee -a "${1}" 2>&1 > /dev/null
 }
 
-echo
+should_run_grub_mkconfig=0
 
 if [[ "$(cat /etc/default/grub | grep GRUB_DISABLE_OS_PROBER)" == "" ]]; then
 	log_info "Enabling os prober for grub"
 	append_to /etc/default/grub ""
 	append_to /etc/default/grub "# Enable other oses detection"
 	append_to /etc/default/grub "GRUB_DISABLE_OS_PROBER=false"
+	should_run_grub_mkconfig=1
+fi
+
+if [[ "$(cat /etc/default/grub | grep GRUB_CMDLINE_LINUX | grep "zswap.enabled=1")" == "" ]]; then
+	log_info "Enabling zswap in grub (permanently)"
+	append_to /etc/default/grub ""
+	append_to /etc/default/grub "# Enable zswap permanently"
+	append_to /etc/default/grub 'GRUB_CMDLINE_LINUX="zswap.enabled=1 zswap.compressor=lz4"'
+
+	log_info "Enabling zswap for this system (temporarily)"
+	echo 1 | sudo tee /sys/module/zswap/parameters/enabled
+	echo lz4 | sudo tee /sys/module/zswap/parameters/compressor
+
+	should_run_grub_mkconfig=1
+fi
+
+if [[ "$should_run_grub_mkconfig" == 1 ]]; then
+	log_warning "Rebuilding grub config"
+	sudo grub-mkconfig -o /boot/grub/grub.cfg
 fi
 
 test -d /boot/grub || \

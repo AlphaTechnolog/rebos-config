@@ -1,0 +1,15 @@
+[managers.portage]
+items = [
+	"sys-block/zram-init",
+	"sys-apps/zram-generator",
+]
+
+[managers.systemd-enable-now]
+items = [
+	"zram_var_tmp.service",
+]
+
+[managers.systemd-start]
+items = [
+	"dev-zram0.swap",
+]

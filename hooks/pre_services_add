@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+cd ~/.config/rebos
+. ~/.config/rebos/hooks/common/utils.sh
+
+test -d /etc/systemd/system/zram_var_tmp.service.d || \
+	sudo mkdir -pv /etc/systemd/system/zram_var_tmp.service.d
+
+if ! [[ -f /etc/systemd/system/zram_var_tmp.service.d/override.conf ]]; then
+log_info "Configuring zram_var_tmp.service.d/override.conf"
+
+cat << "EOF" | sudo tee /etc/systemd/system/zram_var_tmp.service.d/override.conf
+[Service]
+ExecStart=
+ExecStart=/sbin/zram-init -d2 -s2 -alz4 -text4 -orelatime -m1777 -Lvar_tmp_dir 16384 /var/tmp
+EOF
+fi

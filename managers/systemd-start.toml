@@ -1,0 +1,9 @@
+add = "sudo systemctl start #:?"
+remove = "sudo sudo systemctl stop #:?"
+
+plural_name = "to be started services"
+
+hook_name = "service_start"
+
+[config]
+many_args = false

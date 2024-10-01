@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+cd ~/.config/rebos
+. ~/.config/rebos/hooks/common/utils.sh
+
+test -d /etc/systemd/zram-generator.conf.d || \
+	sudo mkdir -pv /etc/systemd/zram-generator.conf.d
+
+if ! [[ -f /etc/systemd/zram-generator.conf.d/zram0-swap.conf ]]; then
+log_info "Configuring zram0-swap.conf for zram-init"
+
+cat << "EOF" | sudo tee /etc/systemd/zram-generator.conf.d/zram0-swap.conf
+[zram0]
+zram-size = ram / 2
+compression-algorithm = lz4
+swap-priority = 100
+fs-type = swap
+EOF
+fi
+
+sudo systemctl daemon-reload

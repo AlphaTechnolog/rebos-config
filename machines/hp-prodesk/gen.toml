@@ -7,4 +7,5 @@ imports = [
 	"hp-prodesk/dev",
 	"hp-prodesk/emulation",
 	"hp-prodesk/services",
+	"hp-prodesk/zram"
 ]
