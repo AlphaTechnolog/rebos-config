@@ -1,13 +1,31 @@
 [managers.portage-emulation]
 items = [
+	# Qemu and virt-manager.
 	"app-emulation/libvirt",
 	"app-emulation/qemu",
 	"app-emulation/virt-manager",
+
+	# Virtualbox with all the goodies
+	"app-emulation/virtualbox",
+	"app-emulation/virtualbox-additions",
+	"app-emulation/virtualbox-guest-additions",
+
+	# Advanced virtualbox networking
+	"sys-apps/usermode-utilities",
+	"net-misc/bridge-utils"
 ]
 
 [managers.systemd-enable-now]
 items = [
 	"virtlogd",
 	"virtlockd",
-	"libvirtd"
+	"libvirtd",
+	"virtualbox-guest-additions"
+]
+
+[managers.groupadd]
+items = [
+	"libvirt",
+	"vboxguest",
+	"vboxsf",
 ]

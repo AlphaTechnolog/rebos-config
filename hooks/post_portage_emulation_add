@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-cd ~/.config/rebos
-. ~/.config/rebos/hooks/common/utils.sh
-
-log_info "Adding $USER to the libvirt group"
-
-sudo gpasswd -a $USER libvirt

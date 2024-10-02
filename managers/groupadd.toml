@@ -1,0 +1,9 @@
+add = "sudo gpasswd -a $(whoami) #:?"
+remove = "sudo gpasswd --delete $(whoami) #:?"
+
+plural_name = "groups"
+
+hook_name = "groupadd"
+
+[config]
+many_args = false

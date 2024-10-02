@@ -1,4 +1,4 @@
 COMMON_FLAGS="-O2 -pipe -march=native -mtune=native"
-VIDEO_CARDS="intel"
+VIDEO_CARDS="intel vmware"
 INPUT_DEVICES="libinput"
 GLOBAL_USE="wayland X pipewire pulseaudio networkmanager wireless bluetooth -gtk -gtk3 -gtk4 -qt -qt5 -qt6 asm bash-completion -emacs -gnome -gnome-keyring initramfs dracut grub introspection ios ipod jit jpeg -kerberos -keyring lm-sensors -man uefi usb vim-syntax vulkan wifi -doc vaapi"

@@ -1,0 +1,10 @@
+begin = [
+    "portage",
+]
+
+end = [
+    "systemd-services",
+    "systemd-enable-now",
+    "systemd-start",
+    "groupadd"
+]
