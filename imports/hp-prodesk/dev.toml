@@ -1,6 +1,6 @@
 [managers.portage]
 items = [
-	"dev-lang/zig-bin",
+	"dev-lang/zig",
 	"net-libs/nodejs",
 	"dev-util/github-cli",
 ]

@@ -11,4 +11,5 @@ items = [
 [managers.portage-andromeda]
 items = [
 	"app-misc/cutefetch",
+	"app-misc/open-repo"
 ]
