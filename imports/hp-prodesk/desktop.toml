@@ -12,6 +12,10 @@ items = [
 	"net-misc/dhcpcd",
 	"net-misc/networkmanager",
 	"gui-apps/wofi",
+	"net-misc/tigervnc",
+	"net-misc/tigervnc-xorg-module",
+	"x11-wm/i3",
+	"x11-misc/dmenu",
 ]
 
 [managers.portage-guru]
