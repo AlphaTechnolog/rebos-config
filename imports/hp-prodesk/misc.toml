@@ -6,6 +6,7 @@ items = [
 	"gui-apps/slurp",
 	"sys-process/htop",
 	"sys-fs/dosfstools",
+	"app-portage/genlop",
 ]
 
 [managers.portage-andromeda]
