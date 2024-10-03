@@ -17,6 +17,13 @@ fi
 
 # Put your fun stuff here.
 alias neofetch='fastfetch'
+alias ls="eza --icons"
+alias la="ls -la"
+alias cat="bat --paging=never --style=plain --theme=base16"
+alias grep="grep --color=always"
+alias cd="z"
 
-export PS1='\[\033[01;92m\][\u@\h \w]\[\033[0m\] '
 export PATH="$PATH:$HOME/.cargo/bin"
+
+eval "$(starship init bash)"
+eval "$(zoxide init bash)"

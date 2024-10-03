@@ -7,6 +7,10 @@ items = [
 	"sys-process/htop",
 	"sys-fs/dosfstools",
 	"app-portage/genlop",
+	"app-shells/starship",
+	"app-shells/zoxide",
+	"sys-apps/eza",
+	"sys-apps/bat",
 ]
 
 [managers.portage-andromeda]
