@@ -12,11 +12,7 @@ cat << EOF > managers/portage-${repo}.toml
 
 add = "sudo emerge --verbose #:? --ask"
 remove = "sudo emerge -cav #:?"
-sync = "sudo emerge --sync"
-upgrade = "sudo emerge -avuDN @world"
-
 plural_name = "portage ${repo}-repo pkgs"
-
 hook_name = "portage_${repo}"
 
 [config]

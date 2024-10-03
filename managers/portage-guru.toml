@@ -1,10 +1,6 @@
 add = "sudo emerge --verbose #:? --ask" # Example: sudo apt install #:?
 remove = "sudo emerge -cav #:?" # Example: sudo apt remove #:?
-sync = "sudo emerge --sync" # Example: sudo apt update
-upgrade = "sudo emerge -avuDN @world" # Example: sudo apt upgrade
-
 plural_name = "portage guru-repo pkgs"
-
 hook_name = "portage_guru"
 
 [config]
