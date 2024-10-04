@@ -1,5 +1,10 @@
-add = "sudo emerge --verbose #:? --ask" # Example: sudo apt install #:?
-remove = "sudo emerge -cav #:?" # Example: sudo apt remove #:?
+# Generated via scripts/CreatePortageRepoManager
+
+add = "sudo emerge --verbose #:? --ask"
+remove = "sudo emerge -cav #:?"
+sync = "sudo emerge --sync guru"
+upgrade = "sudo emerge -avuDN @world"
+
 plural_name = "portage guru-repo pkgs"
 hook_name = "portage_guru"
 

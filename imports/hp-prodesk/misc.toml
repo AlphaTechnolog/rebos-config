@@ -12,6 +12,7 @@ items = [
 	"sys-apps/eza",
 	"sys-apps/bat",
 	"sys-process/lsof",
+	"net-misc/mosh",
 ]
 
 [managers.portage-andromeda]

@@ -2,6 +2,9 @@
 
 add = "sudo emerge --verbose #:? --ask"
 remove = "sudo emerge -cav #:?"
+sync = "sudo emerge --sync andromeda"
+upgrade = "sudo emerge -avuDN @world"
+
 plural_name = "portage andromeda-repo pkgs"
 hook_name = "portage_andromeda"
 
