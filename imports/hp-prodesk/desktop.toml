@@ -14,6 +14,7 @@ items = [
 	"gui-apps/wofi",
 	"net-misc/tigervnc",
 	"net-misc/tigervnc-xorg-module",
+	"gui-apps/wayvnc",
 	"x11-wm/i3",
 	"x11-misc/dmenu",
 ]
