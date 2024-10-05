@@ -61,7 +61,7 @@ if [[ "$should_run_grub_mkconfig" == 1 ]]; then
 	sudo grub-mkconfig -o /boot/grub/grub.cfg
 fi
 
-test -d /boot/grub || \
+test -d /boot/grub && \
 	log_warn "Remember to install grub by using grub-install and grub-mkconfig & remember to set your hostname"
 
 log_info "Copying config files"
