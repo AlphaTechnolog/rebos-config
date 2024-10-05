@@ -6,10 +6,17 @@ items = [
 	"sys-apps/arch-chroot",
 	"dev-lang/php",
 	"www-servers/nginx",
+	"dev-db/mysql",
+]
+
+[managers.dispatch-interactive-config]
+items = [
+	"dev-db/mysql",
 ]
 
 [managers.systemd-enable-now]
 items = [
 	"nginx",
-	"php-fpm@8.2"
+	"php-fpm@8.2",
+	"mysqld",
 ]

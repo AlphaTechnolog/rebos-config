@@ -3,6 +3,7 @@ begin = [
 ]
 
 end = [
+    "dispatch-interactive-config",
     "systemd-services",
     "systemd-enable-now",
     "systemd-start",

@@ -1,0 +1,7 @@
+add = "sudo emerge --config #:? 2>&1 || echo #:? probably already configured."
+remove = "echo warning: Can't unconfigure #:? ... Just uninstall it"
+plural_name = "configuration pkgs"
+hook_name = "interactive_config"
+
+[config]
+many_args = false

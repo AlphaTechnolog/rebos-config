@@ -1,0 +1,1 @@
+db-db/mysql server tcmalloc -router -numa -latin1 -experimental -client-libs cjk cracklib -static-libs -systemtap
