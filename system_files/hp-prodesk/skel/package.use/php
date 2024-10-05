@@ -1,0 +1,4 @@
+dev-lang/php jit opcache opcache-jit curl mssql mysql mysqli pdo sockets sqlite curl threads truetype -valgrind gd fpm
+app-misc/mime-types nginx
+dev-db/freetds mssql
+app-eselect/eselect-php fpm -apache2

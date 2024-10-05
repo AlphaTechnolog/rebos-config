@@ -31,29 +31,7 @@ system_files="$global_system_files/$HOSTNAME"
 
 log_info "Updating make.conf"
 
-make_conf_template="$global_system_files/make.conf.template"
-make_conf_variables="$system_files/make.conf.variables"
-
-process_template() {
-    local template_file=$1
-    local variables_file=$2
-
-    while IFS='=' read -r var_name var_value; do
-        var_name=$(echo "$var_name" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
-        var_value=$(echo "$var_value" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
-
-        sed -i.bak "s/%$var_name%/$var_value/g" "$template_file"
-    done < "$variables_file"
-
-    cat "$template_file"
-}
-
-cp -rvf $make_conf_template $make_conf_template.tmp
-
-process_template "${make_conf_template}.tmp" "$make_conf_variables" | \
-	sudo tee /etc/portage/make.conf
-
-rm ${make_conf_template}.tmp
+sudo cp -rvf "$system_files/make.conf" /etc/portage/make.conf
 
 log_info "Updating pkgs configs"
 

@@ -73,6 +73,14 @@ sudo cp -rvf "$config_files/.bashrc.root" /root/.bashrc
 
 rsync -vah "$config_files/.config/" ~/.config
 
+log_info "Synchronising system files"
+
+root_files="$system_files/system_files"
+
+for x in $root_files/*; do
+	sudo rsync -vah $x /
+done
+
 log_info "Cleaning up"
 
 cd ~/.config/rebos && find -type f -name \*.bak -delete

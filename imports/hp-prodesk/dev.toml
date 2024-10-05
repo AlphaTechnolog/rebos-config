@@ -4,4 +4,12 @@ items = [
 	"net-libs/nodejs",
 	"dev-util/github-cli",
 	"sys-apps/arch-chroot",
+	"dev-lang/php",
+	"www-servers/nginx",
+]
+
+[managers.systemd-enable-now]
+items = [
+	"nginx",
+	"php-fpm@8.2"
 ]
