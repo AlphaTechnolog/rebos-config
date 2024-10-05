@@ -56,13 +56,16 @@ if [[ "$(cat /etc/default/grub | grep GRUB_CMDLINE_LINUX | grep "zswap.enabled=1
 	should_run_grub_mkconfig=1
 fi
 
+test -d /boot/grub || \
+	log_warn "Remember to install grub by using grub-install"
+
+test -f /etc/hostname || \
+	log_warn "Remember to set your hostname"
+
 if [[ "$should_run_grub_mkconfig" == 1 ]]; then
 	log_warning "Rebuilding grub config"
 	sudo grub-mkconfig -o /boot/grub/grub.cfg
 fi
-
-test -d /boot/grub && \
-	log_warn "Remember to install grub by using grub-install and grub-mkconfig & remember to set your hostname"
 
 log_info "Copying config files"
 
