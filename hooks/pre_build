@@ -23,7 +23,7 @@ log_info "Changing profile if required"
 
 # This only for hp-prodesk machine which is dev host, but also vms host.
 if [[ "$HOSTNAME" == "hp-prodesk" ]]; then
-	sudo eselect profile set default/linux/amd64/23.0/split-usr/desktop/gnome
+	sudo eselect profile set default/linux/amd64/23.0/desktop/gnome/systemd
 fi
 
 log_warning "Performing /etc/portage/repos.conf check"

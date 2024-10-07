@@ -1,5 +1,5 @@
-add = "sudo emerge --verbose #:? --ask" # Example: sudo apt install #:?
-remove = "sudo emerge -cav #:?" # Example: sudo apt remove #:?
+add = "sudo emerge -v #:?"
+remove = "sudo emerge -cv #:?"
 plural_name = "portage emulation pkgs"
 hook_name = "portage_emulation"
 

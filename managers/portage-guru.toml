@@ -1,10 +1,7 @@
 # Generated via scripts/CreatePortageRepoManager
 
-add = "sudo emerge --verbose #:? --ask"
-remove = "sudo emerge -cav #:?"
-sync = "sudo emerge --sync guru"
-upgrade = "sudo emerge -avuDN @world"
-
+add = "sudo emerge -v #:?"
+remove = "sudo emerge -cv #:?"
 plural_name = "portage guru-repo pkgs"
 hook_name = "portage_guru"
 

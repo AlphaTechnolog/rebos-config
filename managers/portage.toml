@@ -1,10 +1,9 @@
-add = "sudo emerge --verbose #:? --ask" # Example: sudo apt install #:?
-remove = "sudo emerge -cav #:?" # Example: sudo apt remove #:?
-sync = "sudo emerge --sync" # Example: sudo apt update
-upgrade = "sudo emerge -avuDN @world" # Example: sudo apt upgrade
+add = "sudo emerge -v #:?"
+remove = "sudo emerge -cv #:?"
+sync = "sudo emerge --sync"
+upgrade = "sudo emerge -vuDN @world"
 
 plural_name = "portage pkgs"
-
 hook_name = "portage"
 
 [config]

@@ -10,11 +10,8 @@ fi
 cat << EOF > managers/portage-${repo}.toml
 # Generated via scripts/CreatePortageRepoManager
 
-add = "sudo emerge --verbose #:? --ask"
-remove = "sudo emerge -cav #:?"
-sync = "sudo emerge --sync ${repo}"
-upgrade = "sudo emerge -avuDN @world"
-
+add = "sudo emerge -v #:?"
+remove = "sudo emerge -cv #:?"
 plural_name = "portage ${repo}-repo pkgs"
 hook_name = "portage_${repo}"
 
