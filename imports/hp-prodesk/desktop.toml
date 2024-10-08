@@ -25,3 +25,8 @@ items = [
 items = [
 	"gui-libs/xdg-desktop-portal-hyprland"
 ]
+
+[managers.systemd-services]
+items = [
+	"gdm"
+]

@@ -7,3 +7,8 @@ items = [
 	"app-editors/vim",
 	"app-admin/sudo"
 ]
+
+[managers.systemd-services]
+items = [
+	"systemd-timesyncd"
+]
