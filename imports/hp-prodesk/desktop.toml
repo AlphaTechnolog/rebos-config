@@ -4,6 +4,7 @@ items = [
 	"x11-base/xorg-drivers",
 	"media-sound/pulseaudio",
 	"media-sound/pavucontrol",
+	"media-sound/spotify",
 	"media-video/pipewire",
 	"gui-wm/hyprland",
 	"x11-terms/alacritty",
