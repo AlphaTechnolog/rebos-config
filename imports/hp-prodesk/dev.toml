@@ -21,3 +21,8 @@ items = [
 	"php-fpm@8.2",
 	"mysqld",
 ]
+
+[managers.flatpak]
+items = [
+	"com.unity.UnityHub"
+]

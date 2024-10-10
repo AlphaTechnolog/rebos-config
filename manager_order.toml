@@ -3,6 +3,7 @@ begin = [
 ]
 
 end = [
+    "flatpak",
     "dispatch-interactive-config",
     "systemd-services",
     "systemd-enable-now",

@@ -5,7 +5,8 @@ items = [
 	"app-portage/cpuid2cpuflags",
 	"app-shells/bash",
 	"app-editors/vim",
-	"app-admin/sudo"
+	"app-admin/sudo",
+	"sys-apps/flatpak",
 ]
 
 [managers.systemd-services]
