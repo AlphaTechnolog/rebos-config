@@ -1,1 +1,5 @@
 add_newline=false
+format = "$directory$character"
+
+[character]
+format = "[| ](bold black)"
