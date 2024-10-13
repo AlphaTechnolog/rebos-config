@@ -8,6 +8,7 @@ items = [
 	"www-servers/nginx",
 	"dev-db/mysql",
 	"app-editors/vscode",
+	"app-editors/neovim",
 ]
 
 [managers.dispatch-interactive-config]

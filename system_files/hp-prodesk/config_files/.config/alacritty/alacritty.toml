@@ -1,8 +1,8 @@
 [colors.primary]
 background = "#141414"
 
-[window]
-opacity = 0.75
+[colors.normal]
+black = "#242424"
 
 [font.normal]
 family = "Comic Code"
