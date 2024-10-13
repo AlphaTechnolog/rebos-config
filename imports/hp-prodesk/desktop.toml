@@ -19,6 +19,8 @@ items = [
 	"x11-wm/i3",
 	"x11-misc/i3status",
 	"x11-misc/dmenu",
+	"x11-wm/awesome",
+	"media-gfx/feh",
 	"gnome-base/gnome-light",
 ]
 
